@@ -2,7 +2,6 @@
 
 
 IMG=zimbra-88
-
 NAME=zimbra-88-instance
 
 docker rm -f $NAME
