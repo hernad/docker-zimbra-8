@@ -26,6 +26,6 @@ docker run -ti \
       \
       -v $(pwd)/zimbra:/zimbra \
       -v $(pwd)/log:/opt/zimbra/log \
-      -v $(pwd)/config:/opt/zimbra/config \
+      -v $(pwd)/conf:/opt/zimbra/conf \
        $IMG bash
 
