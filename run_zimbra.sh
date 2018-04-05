@@ -10,7 +10,7 @@ docker run -ti \
       --name $NAME \
       -e ZIMBRA_HOST_NAME=zimbra.zcs-foss.test \
       -e MAILBOX_HOST_NAME=mailbox \
-      -e TIME_ZONE_ID=Europe\/Sarajevo \
+      -e TIME_ZONE_ID=Europe\\\/Sarajevo \
       -e ADMIN_PW=test123 \
       -e LDAP_ADMIN_PW=zimbra \
       -e LDAP_AMAVIS_PW=zimbra \

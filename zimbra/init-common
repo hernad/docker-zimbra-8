@@ -107,8 +107,10 @@ function update_host_entry {
 }
 
 function update_zmsetup_config_file {
+    echo "sed 2"
     HOST_CIDR=$(echo $HOST_ADDRESS | sed -e 's/[[:digit:]]*$/0/')
-    cat /zimbra/config.in | sed \
+    echo "sed config.in (time_zone_id $TIME_ZONE_ID) - config"
+    sed /zimbra/config.in  \
         -e "s/ZIMBRA_HOST_NAME/${ZIMBRA_HOST_NAME}/" \
         -e "s/MAILBOX_HOST_NAME/${MAILBOX_HOST_NAME}/" \
         -e "s/ZIMBRA_DEFAULT_DOMAIN/${ZIMBRA_DEFAULT_DOMAIN}/" \
