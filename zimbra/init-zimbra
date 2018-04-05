@@ -1,6 +1,10 @@
 #!/bin/bash
 source /zimbra/init-common
 
+echo "/opt/zimbra/conf_0 - conf volume"
+mv /opt/zimbra/conf_0/* /opt/zimbra/conf/
+
+
 # NOTE: Currently genesis tests assume that the zmhostname == zimbra_default_domain
 #       A fix for this is in progress
 zimbra_fqdn=${ZIMBRA_HOST_NAME}
