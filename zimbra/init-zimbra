@@ -2,6 +2,8 @@
 source /zimbra/init-common
 
 echo "/opt/zimbra/conf_0 - conf volume"
+rm -rf /opt/zimbra/conf/*
+chown zimbra:zimbra /opt/zimbra/conf
 mv /opt/zimbra/conf_0/* /opt/zimbra/conf/
 
 
