@@ -4,7 +4,7 @@ source /init/init-common
 echo "/opt/zimbra/conf_0 - conf volume"
 rm -rf /opt/zimbra/conf/*
 
-for dir in conf db/data log store ssl data/clamav data/ldap logger 
+for dir in conf db/data log store ssl data/clamav data/postfix data/ldap logger zimlets-deployed
 do
   echo chown -R zimbra:zimbra /opt/zimbra/$dir
   chown -R zimbra:zimbra /opt/zimbra/$dir
@@ -32,7 +32,7 @@ configure_staf
 echo '/etc -> /docker_etc'
 cp -av /etc/hosts /etc/aliases.lmdb /etc/localtime /etc/timezone /docker_etc
 mkdir /docker_etc/logrotate.d
-cp -av /etc/logrotate.d/zimbra  /docker_etc/logroate.d/
+cp -av /etc/logrotate.d/zimbra  /docker_etc/logrotate.d/
 mkdir /docker_etc/rsyslog.d
 cp -av /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/60-zimbra.conf /docker_etc/rsyslog.d
 
