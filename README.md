@@ -2,9 +2,10 @@
 
 
     # setenforce 0
-    # ./run_zimbra.sh
+    # ZIMBRA_CLEANUP_VOLUMES=1 - pobrisati lokalne volumene
+    # ZIMBRA_CLEANUP_VOLUMES=1 ./create_zimbra_instance.sh
     # docker sesija
-    # /zimbra/init-zimbra
+    # /init/init-zimbra
 
 
 
