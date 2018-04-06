@@ -1,5 +1,5 @@
 #!/bin/bash
-source /zimbra/init-common
+source /init/init-common
 
 echo "/opt/zimbra/conf_0 - conf volume"
 rm -rf /opt/zimbra/conf/*
