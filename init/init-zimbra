@@ -4,7 +4,7 @@ source /init/init-common
 echo "/opt/zimbra/conf_0 - conf volume"
 rm -rf /opt/zimbra/conf/*
 
-for dir in conf db/data log store ssl data/clamav data/postfix data/ldap logger zimlets-deployed
+for dir in conf db/data log store ssl data/clamav data/postfix data/ldap data/tmp logger zimlets-deployed
 do
   echo chown -R zimbra:zimbra /opt/zimbra/$dir
   chown -R zimbra:zimbra /opt/zimbra/$dir

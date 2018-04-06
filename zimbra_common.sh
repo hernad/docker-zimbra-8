@@ -13,6 +13,9 @@ VOL_ZIMBRA_ETC_SESSION=/docker_etc
 VOL_ZIMBRA_LOG=$(pwd)/zimbra/log
 VOL_ZIMBRA_LOG_SESSION=/opt/zimbra/log
 
+VOL_ZIMBRA_INDEX=$(pwd)/zimbra/index
+VOL_ZIMBRA_INDEX_SESSION=/opt/zimbra/index
+
 VOL_ZIMBRA_CONF=$(pwd)/zimbra/conf
 VOL_ZIMBRA_CONF_SESSION=/opt/zimbra/conf
 
@@ -48,6 +51,9 @@ VOL_ZIMBRA_LDAP_3_SESSION=/opt/zimbra/data/state
 
 VOL_ZIMBRA_ZIMLETS=$(pwd)/zimbra/zimlets-deployed
 VOL_ZIMBRA_ZIMLETS_SESSION=/opt/zimbra/zimlets-deployed
+
+VOL_ZIMBRA_TMP=$(pwd)/zimbra/data/tmp
+VOL_ZIMBRA_TMP_SESSION=/opt/zimbra/data/tmp
 
 #root@f49c5ba01677:/tmp/release# find /opt/zimbra/data/ldap
 #/opt/zimbra/data/ldap
