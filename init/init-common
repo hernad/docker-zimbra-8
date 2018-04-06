@@ -1,5 +1,5 @@
 #!/bin/bash
-# Perform template substitution in /zimbra/zimbra-config then configure the system
+# Perform template substitution in /init/zimbra-config then configure the system
 # Expects the following environment variables to be set:
 #   HOSTNAME (from specification in the docker-compose file; e.g., 'zimbra-1')
 #   ZIMBRA_DEFAULT_DOMAIN
@@ -110,7 +110,7 @@ function update_zmsetup_config_file {
     echo "sed 2"
     HOST_CIDR=$(echo $HOST_ADDRESS | sed -e 's/[[:digit:]]*$/0/')
     echo "sed config.in (time_zone_id $TIME_ZONE_ID) - config"
-    sed /zimbra/config.in  \
+    sed /init/config.in  \
         -e "s/ZIMBRA_HOST_NAME/${ZIMBRA_HOST_NAME}/" \
         -e "s/MAILBOX_HOST_NAME/${MAILBOX_HOST_NAME}/" \
         -e "s/ZIMBRA_DEFAULT_DOMAIN/${ZIMBRA_DEFAULT_DOMAIN}/" \
@@ -125,7 +125,7 @@ function update_zmsetup_config_file {
         -e "s/LDAP_NGINX_PW/${LDAP_NGINX_PW}/" \
         -e "s/HOST_ADDRESS/${HOST_ADDRESS}/" \
         -e "s/HOST_CIDR/${HOST_CIDR}/" \
-        > /zimbra/config
+        > /init/config
 }
 
 function update_tzdata_config {

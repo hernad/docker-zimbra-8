@@ -36,6 +36,10 @@ VOL_ZIMBRA_LDAP_SESSION=/opt/zimbra/data/ldap
 VOL_ZIMBRA_LOGGER=$(pwd)/zimbra/data/logger
 VOL_ZIMBRA_LOGGER_SESSION=/opt/zimbra/data/logger
 
+if [ "$ZIMBRA_CLEANUP_VOLUMES" == "1" ] ; then
+	sudo chown -R $(whoami) $(pwd)/zimbra 
+fi
+
 for path in $VOL_ZIMBRA_LOG $VOL_ZIMBRA_CONF $VOL_ZIMBRA_DB $VOL_ZIMBRA_STORE $VOL_ZIMBRA_SSL $VOL_ZIMBRA_CLAMAV \
             $VOL_ZIMBRA_AMAVISD $VOL_ZIMBRA_LDAP $VOL_ZIMBRA_LOGGER 
 do
