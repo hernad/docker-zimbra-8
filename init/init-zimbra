@@ -3,9 +3,14 @@ source /init/init-common
 
 echo "/opt/zimbra/conf_0 - conf volume"
 rm -rf /opt/zimbra/conf/*
-chown zimbra:zimbra /opt/zimbra/conf
-mv /opt/zimbra/conf_0/* /opt/zimbra/conf/
 
+for dir in conf db/data log store ssl data/clamav data/ldap logger 
+do
+  echo chown -R zimbra:zimbra /opt/zimbra/$dir
+  chown -R zimbra:zimbra /opt/zimbra/$dir
+done
+
+mv /opt/zimbra/conf_0/* /opt/zimbra/conf/
 
 # NOTE: Currently genesis tests assume that the zmhostname == zimbra_default_domain
 #       A fix for this is in progress
