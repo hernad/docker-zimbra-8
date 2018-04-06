@@ -11,7 +11,7 @@ services:
         target: /zimbra/init
         mode: 0777
       - source: config_zimbra
-        target: /zimbra/config.in
+        target: /init/config.in
         mode: 0666
     env_file: .env
     entrypoint:
@@ -38,7 +38,7 @@ services:
         target: /zimbra/init
         mode: 0777
       - source: config_mailbox
-        target: /zimbra/config.in
+        target: /init/config.in
         mode: 0666
     env_file: .env
     entrypoint:

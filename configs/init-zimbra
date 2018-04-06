@@ -22,7 +22,7 @@ update_tzdata_config
 update_zmsetup_config_file
 
 # Configure Zimbra
-/opt/zimbra/libexec/zmsetup.pl -c /zimbra/config
+/opt/zimbra/libexec/zmsetup.pl -c /init/config
 echo "Enable admin access via proxy. Required for SOAP Harness tests "
 sudo -i -u zimbra /opt/zimbra/libexec/zmproxyconfig -e -w -C -H ${ZIMBRA_HOST_NAME}
 post_zmsetup_configuration 

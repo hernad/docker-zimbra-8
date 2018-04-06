@@ -108,7 +108,7 @@ function update_host_entry {
 
 function update_zmsetup_config_file {
     HOST_CIDR=$(echo $HOST_ADDRESS | sed -e 's/[[:digit:]]*$/0/')
-    cat /zimbra/config.in | sed \
+    cat /init/config.in | sed \
         -e "s/ZIMBRA_HOST_NAME/${ZIMBRA_HOST_NAME}/" \
         -e "s/MAILBOX_HOST_NAME/${MAILBOX_HOST_NAME}/" \
         -e "s/ZIMBRA_DEFAULT_DOMAIN/${ZIMBRA_DEFAULT_DOMAIN}/" \
@@ -123,7 +123,7 @@ function update_zmsetup_config_file {
         -e "s/LDAP_NGINX_PW/${LDAP_NGINX_PW}/" \
         -e "s/HOST_ADDRESS/${HOST_ADDRESS}/" \
         -e "s/HOST_CIDR/${HOST_CIDR}/" \
-        > /zimbra/config
+        > /init/config
 }
 
 function update_tzdata_config {

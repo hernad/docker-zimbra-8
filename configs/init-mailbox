@@ -33,7 +33,7 @@ update_zmsetup_config_file
 wait_for_staf ${zimbra_fqdn}
 
 # Configure Zimbra
-/opt/zimbra/libexec/zmsetup.pl -c /zimbra/config
+/opt/zimbra/libexec/zmsetup.pl -c /init/config
 echo "Disable max imap/pop3 max error limits. Required for Genesis"
 sudo -i -u zimbra zmlocalconfig -e imap_max_consecutive_error=0 pop3_max_consecutive_error=0
 post_zmsetup_configuration 
