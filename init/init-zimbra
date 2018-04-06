@@ -1,16 +1,26 @@
 #!/bin/bash
 source /init/init-common
 
-echo "/opt/zimbra/conf_0 - conf volume"
-rm -rf /opt/zimbra/conf/*
+#echo "/opt/zimbra/conf_0 - conf volume"
+#rm -rf /opt/zimbra/conf/*
 
-for dir in conf db/data log store ssl data/clamav data/postfix data/ldap data/tmp logger zimlets-deployed
+for dir in conf db/data log store ssl data/clamav data/ldap data/tmp logger zimlets-deployed
 do
   echo chown -R zimbra:zimbra /opt/zimbra/$dir
   chown -R zimbra:zimbra /opt/zimbra/$dir
 done
 
-mv /opt/zimbra/conf_0/* /opt/zimbra/conf/
+echo "fixing postfix permissions - spool - root, data - postfix"
+chown root /opt/zimbra/data/postfix/spool
+chown postfix /opt/zimbra/data/postfix/data 
+
+
+echo "fixing zimbra/data/tmp/nginx"
+mkdir -p /opt/zimbra/data/tmp/nginx 
+chown zimbra:zimbra /opt/zimbra/data/tmp/nginx
+
+
+#mv /opt/zimbra/conf_0/* /opt/zimbra/conf/
 
 # NOTE: Currently genesis tests assume that the zmhostname == zimbra_default_domain
 #       A fix for this is in progress
@@ -28,14 +38,17 @@ sudo -i -u zimbra zmlocalconfig -e imap_max_consecutive_error=0 pop3_max_consecu
 post_zmsetup_configuration 
 configure_staf 
 
+echo '/etc -> /docker_etc/etc'
+mkdir -p /docker_etc/etc
+cp -av /etc/hosts /etc/aliases.lmdb /etc/localtime /etc/timezone /docker_etc/etc
+mkdir /docker_etc/etc/logrotate.d
+cp -av /etc/logrotate.d/zimbra  /docker_etc/etc/logrotate.d/
+mkdir /docker_etc/etc/rsyslog.d
+cp -av /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/60-zimbra.conf /docker_etc/etc/rsyslog.d
 
-echo '/etc -> /docker_etc'
-cp -av /etc/hosts /etc/aliases.lmdb /etc/localtime /etc/timezone /docker_etc
-mkdir /docker_etc/logrotate.d
-cp -av /etc/logrotate.d/zimbra  /docker_etc/logrotate.d/
-mkdir /docker_etc/rsyslog.d
-cp -av /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/60-zimbra.conf /docker_etc/rsyslog.d
-
+echo '/opt/zimbra/conf -> /docker_etc/conf'
+mkdir -p /docker_etc/conf
+cp -av /opt/zimbra/conf/* /docker/etc/conf/
 
 echo "SETUP COMPLETE"
 /bin/sleep infinity

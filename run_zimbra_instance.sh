@@ -4,6 +4,9 @@ source zimbra_common.sh
 
 docker rm -f $NAME
 
+
+echo volume $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION  only when running instance
+
 docker run -ti \
       --name $NAME \
       -p 7071:7071  \
@@ -21,7 +24,6 @@ docker run -ti \
       \
       -v $VOL_ZIMBRA_LOG:$VOL_ZIMBRA_LOG_SESSION \
       -v $VOL_ZIMBRA_INDEX:$VOL_ZIMBRA_INDEX_SESSION \
-      -v $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION \
       \
       -v $VOL_ZIMBRA_LDAP:$VOL_ZIMBRA_LDAP_SESSION \
       -v $VOL_ZIMBRA_LDAP_2:$VOL_ZIMBRA_LDAP_2_SESSION \
@@ -35,6 +37,10 @@ docker run -ti \
       -v $VOL_ZIMBRA_ZIMLETS:$VOL_ZIMBRA_ZIMLETS_SESSION \
       -v $VOL_ZIMBRA_TMP:$VOL_ZIMBRA_TMP_SESSION \
        \
-       $IMG bash
-
+      -v $VOL_ZIMBRA_POSTFIX_2:$VOL_ZIMBRA_POSTFIX_2_SESSION \
+      -v $VOL_ZIMBRA_POSTFIX:$VOL_ZIMBRA_POSTFIX_SESSION \
+      \
+       -v $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION \
+      \
+      $IMG bash
 

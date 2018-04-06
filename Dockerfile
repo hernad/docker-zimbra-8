@@ -77,6 +77,6 @@ RUN sed -i.bak 's/checkRequired/# checkRequired/' install.sh && \
     apt-get clean && \
     rm -rf /tmp/release
 
-RUN mv /opt/zimbra/conf /opt/zimbra/conf_0
+#RUN mv /opt/zimbra/conf /opt/zimbra/conf_0
 
 EXPOSE 22 25 80 110 143 443 465 587 993 995 6500 6550 7071 8443

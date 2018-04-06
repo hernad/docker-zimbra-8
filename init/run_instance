@@ -1,3 +1,7 @@
 #!/bin/bash
 
-cp -av /docker_etc/* /etc/
+cp -av /docker_etc/etc/* /etc/
+
+if  [ ! -f /opt/zimbra/conf/my.cnf ] ; then
+  cp -av /docker_etc/conf/* /opt/zimbra/conf/
+fi
