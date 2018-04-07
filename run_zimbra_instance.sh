@@ -6,7 +6,7 @@ docker rm -f $NAME
 
 
 echo volume $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION  only when running instance
-
+echo '+ volume common/conf, common/etc'
 docker run -ti \
       -h $ZIMBRA_HOST_NAME \
       --name $NAME \

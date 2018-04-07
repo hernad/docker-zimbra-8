@@ -9,5 +9,8 @@ if  [ ! -f /opt/zimbra/conf/my.cnf ] ; then
   cp -av /docker_etc/conf/* /opt/zimbra/conf/
 fi
 
+cp -av /docker_etc/common_conf/* /opt/zimbra/common/conf/
+cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
+
 fix_zimbra_priviledges
 
