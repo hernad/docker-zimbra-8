@@ -28,7 +28,6 @@ done
 docker rm -f $NAME
 
 
-
 docker run -ti \
       -h $ZIMBRA_HOST_NAME \
       --name $NAME \
@@ -77,9 +76,3 @@ docker run -ti \
        \
        $IMG bash
 
-
-
-
-
-
-#     
