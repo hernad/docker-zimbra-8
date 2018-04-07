@@ -4,20 +4,8 @@ source /init/init-common
 #echo "/opt/zimbra/conf_0 - conf volume"
 #rm -rf /opt/zimbra/conf/*
 
-for dir in conf db/data log store ssl data/clamav data/ldap data/tmp logger zimlets-deployed
-do
-  echo chown -R zimbra:zimbra /opt/zimbra/$dir
-  chown -R zimbra:zimbra /opt/zimbra/$dir
-done
+fix_zimbra_priviledges
 
-echo "fixing postfix permissions - spool - root, data - postfix"
-chown root /opt/zimbra/data/postfix/spool
-chown postfix /opt/zimbra/data/postfix/data 
-
-
-echo "fixing zimbra/data/tmp/nginx"
-mkdir -p /opt/zimbra/data/tmp/nginx 
-chown zimbra:zimbra /opt/zimbra/data/tmp/nginx
 
 
 #mv /opt/zimbra/conf_0/* /opt/zimbra/conf/
@@ -40,7 +28,7 @@ configure_staf
 
 echo '/etc -> /docker_etc/etc'
 mkdir -p /docker_etc/etc
-cp -av /etc/hosts /etc/aliases.lmdb /etc/localtime /etc/timezone /docker_etc/etc
+cp -av /etc/aliases.lmdb /etc/localtime /etc/timezone /docker_etc/etc
 mkdir /docker_etc/etc/logrotate.d
 cp -av /etc/logrotate.d/zimbra  /docker_etc/etc/logrotate.d/
 mkdir /docker_etc/etc/rsyslog.d

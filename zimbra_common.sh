@@ -43,17 +43,24 @@ VOL_ZIMBRA_AMAVISD_SESSION=/opt/zimbra/data/amavisd/db
 VOL_ZIMBRA_LDAP=$(pwd)/zimbra/data/ldap/mdb/db
 VOL_ZIMBRA_LDAP_SESSION=/opt/zimbra/data/ldap/mdb/db
 
-VOL_ZIMBRA_LDAP_2=$(pwd)/zimbra/data/ldap/conf
-VOL_ZIMBRA_LDAP_2_SESSION=/opt/zimbra/data/conf
+VOL_ZIMBRA_LDAP_2=$(pwd)/zimbra/data/ldap/config
+VOL_ZIMBRA_LDAP_2_SESSION=/opt/zimbra/data/ldap/config
 
 VOL_ZIMBRA_LDAP_3=$(pwd)/zimbra/data/ldap/state
-VOL_ZIMBRA_LDAP_3_SESSION=/opt/zimbra/data/state
+VOL_ZIMBRA_LDAP_3_SESSION=/opt/zimbra/data/ldap/state
 
 VOL_ZIMBRA_ZIMLETS=$(pwd)/zimbra/zimlets-deployed
 VOL_ZIMBRA_ZIMLETS_SESSION=/opt/zimbra/zimlets-deployed
 
 VOL_ZIMBRA_TMP=$(pwd)/zimbra/data/tmp
 VOL_ZIMBRA_TMP_SESSION=/opt/zimbra/data/tmp
+
+VOL_ZIMBRA_COMMON=$(pwd)/zimbra/cmmmon/conf
+VOL_ZIMBRA_COMMON_SESSION=/opt/zimbra/common/conf
+
+VOL_ZIMBRA_COMMON_2=$(pwd)/zimbra/cmmmon/etc
+VOL_ZIMBRA_COMMON_2_SESSION=/opt/zimbra/common/etc
+
 
 #root@f49c5ba01677:/tmp/release# find /opt/zimbra/data/ldap
 #/opt/zimbra/data/ldap
@@ -66,3 +73,5 @@ VOL_ZIMBRA_TMP_SESSION=/opt/zimbra/data/tmp
 
 VOL_ZIMBRA_LOGGER=$(pwd)/zimbra/logger
 VOL_ZIMBRA_LOGGER_SESSION=/opt/zimbra/logger
+
+ZIMBRA_HOST_NAME=zimbra-1.zimbra.test

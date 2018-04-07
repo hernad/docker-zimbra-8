@@ -25,10 +25,13 @@ done
 
 docker rm -f $NAME
 
+
+
 docker run -ti \
+      -h $ZIMBRA_HOST_NAME \
       --name $NAME \
       -e ZIMBRA_DEFAULT_DOMAIN=zimbra.test \
-      -e ZIMBRA_HOST_NAME=zimbra-1.zimbra.test \
+      -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
       -e TIME_ZONE_ID=Europe\\\/Sarajevo \
       -e ADMIN_PW=test123 \
       -e LDAP_ADMIN_PW=zimbra \

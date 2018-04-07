@@ -8,6 +8,7 @@ docker rm -f $NAME
 echo volume $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION  only when running instance
 
 docker run -ti \
+      -h $ZIMBRA_HOST_NAME \
       --name $NAME \
       -p 7071:7071  \
       -p 8143:143   \
@@ -40,7 +41,8 @@ docker run -ti \
       -v $VOL_ZIMBRA_POSTFIX_2:$VOL_ZIMBRA_POSTFIX_2_SESSION \
       -v $VOL_ZIMBRA_POSTFIX:$VOL_ZIMBRA_POSTFIX_SESSION \
       \
-       -v $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION \
+      -v $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION \
+      -v $VOL_ZIMBRA_COMMON:$VOL_ZIMBRA_COMMON_SESSION \
+      -v $VOL_ZIMBRA_COMMON_2:$VOL_ZIMBRA_COMMON_2_SESSION \
       \
       $IMG bash
-
