@@ -13,7 +13,9 @@ for path in $VOL_ZIMBRA_LOG $VOL_ZIMBRA_INDEX $VOL_ZIMBRA_CONF $VOL_ZIMBRA_DB \
             $VOL_ZIMBRA_LDAP $VOL_ZIMBRA_LDAP_2 $VOL_ZIMBRA_LDAP_3 \
             $VOL_ZIMBRA_LOGGER \
             $VOL_ZIMBRA_ZIMLETS \
-            $VOL_ZIMBRA_TMP
+            $VOL_ZIMBRA_TMP \
+            $VOL_ZIMBRA_ZMSTAT \
+            $VOL_ZIMBRA_CRONTABS
 do
             echo $path
             [ "$ZIMBRA_CLEANUP_VOLUMES" == "1" ] && echo cleanup $path && rm -rf $path 
@@ -70,10 +72,11 @@ docker run -ti \
       \
       -v $VOL_ZIMBRA_ZIMLETS:$VOL_ZIMBRA_ZIMLETS_SESSION \
       -v $VOL_ZIMBRA_TMP:$VOL_ZIMBRA_TMP_SESSION \
+      -v $VOL_ZIMBRA_ZMSTAT:$VOL_ZIMBRA_ZMSTAT_SESSION \
+      -v $VOL_ZIMBRA_CRONTABS:$VOL_ZIMBRA_CRONTABS_SESSION \ 
        \
        $IMG bash
 
-#-v $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION \
 
 
 

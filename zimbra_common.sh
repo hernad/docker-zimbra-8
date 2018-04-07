@@ -61,6 +61,11 @@ VOL_ZIMBRA_COMMON_SESSION=/opt/zimbra/common/conf
 VOL_ZIMBRA_COMMON_2=$(pwd)/zimbra/cmmmon/etc
 VOL_ZIMBRA_COMMON_2_SESSION=/opt/zimbra/common/etc
 
+VOL_ZIMBRA_ZMSTAT=$(pwd)/zimbra/zmstat
+VOL_ZIMBRA_ZMSTAT_SESSION=/opt/zimbra/zmstat
+
+VOL_ZIMBRA_CRONTABS=$(pwd)/zimbra/crontabs
+VOL_ZIMBRA_CRONTABS_SESSION=/var/spool/cron/crontabs
 
 #root@f49c5ba01677:/tmp/release# find /opt/zimbra/data/ldap
 #/opt/zimbra/data/ldap
