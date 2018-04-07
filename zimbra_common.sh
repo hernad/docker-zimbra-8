@@ -1,9 +1,6 @@
 #!/bin/bash
 
 
-IMG=zimbra-88
-NAME=zimbra-88-instance
-
 VOL_ZIMBRA_INIT=$(pwd)/init
 VOL_ZIMBRA_INIT_SESSION=/init
 
@@ -78,5 +75,8 @@ VOL_ZIMBRA_CRONTABS_SESSION=/var/spool/cron/crontabs
 
 VOL_ZIMBRA_LOGGER=$(pwd)/zimbra/logger
 VOL_ZIMBRA_LOGGER_SESSION=/opt/zimbra/logger
+
+IMG=zimbra-88
+NAME=zimbra-88-instance
 
 ZIMBRA_HOST_NAME=zimbra-1.zimbra.test
