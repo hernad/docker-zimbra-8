@@ -48,7 +48,7 @@ cp -av /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/60-zimbra.conf /docker_etc/
 
 echo '/opt/zimbra/conf -> /docker_etc/conf'
 mkdir -p /docker_etc/conf
-cp -av /opt/zimbra/conf/* /docker/etc/conf/
+cp -av /opt/zimbra/conf/* /docker_etc/conf/
 
 echo "SETUP COMPLETE"
 /bin/sleep infinity
