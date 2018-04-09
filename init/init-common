@@ -169,7 +169,7 @@ function wait_for_staf {
 
 
 function fix_zimbra_priviledges {
-    for dir in conf db/data log store ssl data/clamav data/ldap data/tmp logger zimlets-deployed
+    for dir in conf db/data log store ssl data/clamav data/ldap data/tmp logger zmstat zimlets-deployed
     do
     echo chown -R zimbra:zimbra /opt/zimbra/$dir
     chown -R zimbra:zimbra /opt/zimbra/$dir

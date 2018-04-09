@@ -55,6 +55,7 @@ docker run -ti \
       -v $VOL_ZIMBRA_STORE:$VOL_ZIMBRA_STORE_SESSION \
       \
       -v $VOL_ZIMBRA_LOG:$VOL_ZIMBRA_LOG_SESSION \
+      -v $VOL_ZIMBRA_LOG_2:$VOL_ZIMBRA_LOG_2_SESSION \
       -v $VOL_ZIMBRA_INDEX:$VOL_ZIMBRA_INDEX_SESSION \
       \
       -v $VOL_ZIMBRA_LDAP:$VOL_ZIMBRA_LDAP_SESSION \
@@ -75,4 +76,3 @@ docker run -ti \
       -v $VOL_ZIMBRA_CRONTABS:$VOL_ZIMBRA_CRONTABS_SESSION \
        \
        $IMG bash
-

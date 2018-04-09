@@ -44,7 +44,7 @@ mkdir -p /docker_etc/common_etc
 cp -av /opt/zimbra/common/conf/* /docker_etc/common_conf/
 cp -av /opt/zimbra/common/etc/* /docker_etc/common_etc/
 
-tar cvfz /docker_etc/jetty_base.tar.gz /opt/zimbra/jetty_base/
+tar cfz /docker_etc/jetty_base.tar.gz /opt/zimbra/jetty_base/
 
 echo "SETUP COMPLETE"
 /bin/sleep infinity

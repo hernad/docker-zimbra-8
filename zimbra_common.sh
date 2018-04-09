@@ -10,6 +10,9 @@ VOL_ZIMBRA_ETC_SESSION=/docker_etc
 VOL_ZIMBRA_LOG=$(pwd)/zimbra/log
 VOL_ZIMBRA_LOG_SESSION=/opt/zimbra/log
 
+VOL_ZIMBRA_LOG_2=$(pwd)/zimbra/system_log
+VOL_ZIMBRA_LOG_2_SESSION=/var/log
+
 VOL_ZIMBRA_INDEX=$(pwd)/zimbra/index
 VOL_ZIMBRA_INDEX_SESSION=/opt/zimbra/index
 
