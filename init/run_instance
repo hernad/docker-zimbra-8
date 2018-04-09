@@ -15,7 +15,7 @@ cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
 cd /
 echo 'extract /opt/zimbra/jetty_base tar'
 
-tar xvf /docker_etc/jetty_base.tar.gz
+tar xf /docker_etc/jetty_base.tar.gz
 
 fix_zimbra_priviledges
 
