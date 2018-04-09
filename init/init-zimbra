@@ -51,6 +51,6 @@ tar cfz /docker_etc/spamassassin.tar.gz /opt/zimbra/data/spamassassin/
 tar cfz /docker_etc/cache_debconf.tar.gz /var/cache/debconf
 tar cfz /docker_etc/etc_ssh.tar.gz /etc/ssh
 
-echo "SETUP COMPLETE"
-/bin/sleep infinity
+#echo "SETUP COMPLETE"
+#/bin/sleep infinity
 
