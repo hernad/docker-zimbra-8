@@ -11,7 +11,7 @@ docker run -ti \
       --name $NAME \
       -p 7071:7071  \
       -p 8143:143   \
-      -p 9443:443   \
+      -p 8443:443   \
       -p 8993:993   \
       \
       -v $VOL_ZIMBRA_INIT:$VOL_ZIMBRA_INIT_SESSION \

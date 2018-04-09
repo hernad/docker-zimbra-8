@@ -55,20 +55,22 @@ RUN curl -s -k -o /tmp/zcs.tgz 'https://files.zimbra.com/downloads/8.8.6_GA/zcs-
 
 # ************************************************************************
 # Install STAF to /usr/local/staf
+# Software Testing Automation Framework (STAF)
+# http://staf.sourceforge.net/
 # 
 # Add the STAF libraries to the END of the list of places where libraries are searched
 # Some of the libraries included with STAF are wonky and will bork normal commands
 # if they are loaded first.
 # ************************************************************************
-RUN curl -L -o /tmp/staf-setup.bin 'http://downloads.sourceforge.net/project/staf/staf/V3.4.26/STAF3426-setup-linux-amd64-NoJVM.bin' && \
-    chmod +x /tmp/staf-setup.bin && \
-    /tmp/staf-setup.bin -i silent \
-       -DACCEPT_LICENSE=1 \
-       -DCHOSEN_INSTALL_SET=Custom \
-       -DCHOSEN_INSTALL_FEATURE_LIST=STAF,ExtSvcs,Langs,Codepage && \
-    rm /tmp/staf-setup.bin && \
-    echo /usr/local/staf/lib > /etc/ld.so.conf.d/zzz-staf.conf && \
-    ldconfig
+#RUN curl -L -o /tmp/staf-setup.bin 'http://downloads.sourceforge.net/project/staf/staf/V3.4.26/STAF3426-setup-linux-amd64-NoJVM.bin' && \
+#    chmod +x /tmp/staf-setup.bin && \
+#    /tmp/staf-setup.bin -i silent \
+#       -DACCEPT_LICENSE=1 \
+#       -DCHOSEN_INSTALL_SET=Custom \
+#       -DCHOSEN_INSTALL_FEATURE_LIST=STAF,ExtSvcs,Langs,Codepage && \
+#    rm /tmp/staf-setup.bin && \
+#    echo /usr/local/staf/lib > /etc/ld.so.conf.d/zzz-staf.conf && \
+#    ldconfig
 
 COPY slash-zimbra/software-install-responses /tmp/software-install-responses
 WORKDIR /tmp/release
