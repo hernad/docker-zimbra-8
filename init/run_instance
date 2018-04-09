@@ -28,5 +28,9 @@ service ssh status
 
 su - zimbra -c "/opt/zimbra/bin/zmcontrol start"
 
-echo "OK"
+
+echo "zimbra version:"
+su - zimbra -c "zmprov getServer ${ZIMBRA_DEFAULT_DOMAIN} zimbraServerVersion"
+
+echo "===RUN_END=="
 tail -f /dev/null

@@ -50,7 +50,8 @@ RUN sed -i.bak 's/^mesg/# mesg/' /root/.profile && \
 # on the `resolvconf` package, and configuration of that is what
 # was breaking install.sh
 # ************************************************************************
-RUN curl -s -k -o /tmp/zcs.tgz 'https://files.zimbra.com/downloads/8.8.6_GA/zcs-8.8.6_GA_1906.UBUNTU16_64.20171130041047.tgz' && \
+ENV ZIMBRA_TGZ https://files.zimbra.com/downloads/8.8.8_GA/zcs-8.8.8_GA_2009.UBUNTU16_64.20180322150747.tgz
+RUN curl -s -k -o /tmp/zcs.tgz $ZIMBRA_TGZ && \
     mkdir -p /tmp/release && \
     tar xzvf /tmp/zcs.tgz -C /tmp/release --strip-components=1 && \
     rm /tmp/zcs.tgz && \

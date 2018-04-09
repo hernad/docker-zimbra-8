@@ -34,7 +34,7 @@ docker rm -f $ZIMBRA_INSTANCE_NAME
 docker run  \
       -h $ZIMBRA_HOST_NAME \
       --name $ZIMBRA_INSTANCE_NAME \
-      -e ZIMBRA_DEFAULT_DOMAIN=zimbra.test \
+      -e ZIMBRA_DEFAULT_DOMAIN=$ZIMBRA_DEFAULT_DOMAIN \
       -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
       -e TIME_ZONE_ID=$TIME_ZONE_ID \
       -e ADMIN_PW=test123 \

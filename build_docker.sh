@@ -1,3 +1,5 @@
 #!/bin/bash
 
-sudo docker build -t zimbra-88 .
+source zimbra_common.sh
+
+docker build -t $ZIMBRA_IMG .

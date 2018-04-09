@@ -24,7 +24,7 @@ sudo -i -u zimbra /opt/zimbra/libexec/zmproxyconfig -e -w -C -H ${ZIMBRA_HOST_NA
 echo "Disable max imap/pop3 max error limits. Required for Genesis"
 sudo -i -u zimbra zmlocalconfig -e imap_max_consecutive_error=0 pop3_max_consecutive_error=0
 post_zmsetup_configuration 
-configure_staf 
+#configure_staf 
 
 echo '/etc -> /docker_etc/etc'
 mkdir -p /docker_etc/etc

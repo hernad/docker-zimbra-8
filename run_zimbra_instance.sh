@@ -9,6 +9,8 @@ echo '+ volume common/conf, common/etc, logger, /etc/ssh'
 docker run  -d \
       -h $ZIMBRA_HOST_NAME \
       --name $ZIMBRA_INSTANCE_NAME \
+      -e ZIMBRA_DEFAULT_DOMAIN=$ZIMBRA_DEFAULT_DOMAIN \
+      -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
       -p 7071:7071  \
       -p 8443:8443  \
       -p 8143:143   \
@@ -52,3 +54,5 @@ docker run  -d \
       -v $VOL_ZIMBRA_SSH:$VOL_ZIMBRA_SSH_SESSION \
       \
       $ZIMBRA_IMG /init/run_instance
+
+
