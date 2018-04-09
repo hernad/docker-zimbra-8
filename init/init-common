@@ -144,9 +144,9 @@ function update_tzdata_config {
     #Local time is now:      Mon Apr  9 12:36:59 CEST 2018.
     #Universal Time is now:  Mon Apr  9 10:36:59 UTC 2018.
 
-    echo "Europe/Sarajevo" > /tmp/tzdata.txt
-    dpkg-reconfigure -f noniteractive tzdata
-
+    rm /etc/localtime
+    echo 'Europe/Sarajevo' > /etc/timezone
+    dpkg-reconfigure -f noninteractive tzdata
 
 }
 

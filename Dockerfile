@@ -1,11 +1,12 @@
 FROM ubuntu:16.04
 
-# Install Basic Packages
-# Set tzdata info to UTC (Etc/UTC) for image.
-# Runtime will reconfigure to match what is in environment
+
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update && \
     apt-get install -y \
     curl \
+    iputils-ping \
     dnsutils \
     gettext \
     linux-tools-common \
@@ -19,12 +20,14 @@ RUN apt-get update && \
     vim \
     wget && \
     apt-get install -y man psutils psmisc ruby-dev gcc && \
-    echo "tzdata tzdata/Areas select Etc" > /tmp/tzdata.txt && \
-    echo "tzdata tzdata/Zones/Etc select UTC" >> /tmp/tzdata.txt && \
-    export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
-    debconf-set-selections /tmp/tzdata.txt && \
     apt-get install -y tzdata && \
     apt-get clean
+
+# echo "tzdata tzdata/Areas select Etc" > /tmp/tzdata.txt && \
+#    echo "tzdata tzdata/Zones/Etc select UTC" >> /tmp/tzdata.txt && \
+#    export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
+#    debconf-set-selections /tmp/tzdata.txt && \
+
 
 # ************************************************************************
 # The following is required for Genesis tests to be run.
