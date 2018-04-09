@@ -26,9 +26,7 @@ fix_zimbra_priviledges
 service ssh start
 service ssh status
 
-
-su zimbra -c "/opt/zimbra/bin/zmcontrol start"
-
+su - zimbra -c "/opt/zimbra/bin/zmcontrol start"
 
 echo "OK"
 tail -f /dev/null

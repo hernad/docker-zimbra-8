@@ -31,7 +31,7 @@ docker rm -f $ZIMBRA_INSTANCE_NAME
 # 7072 - admin console
 
 
-docker run -i \
+docker run  \
       -h $ZIMBRA_HOST_NAME \
       --name $ZIMBRA_INSTANCE_NAME \
       -e ZIMBRA_DEFAULT_DOMAIN=zimbra.test \
