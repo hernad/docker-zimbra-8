@@ -36,7 +36,7 @@ docker run -ti \
       --name $NAME \
       -e ZIMBRA_DEFAULT_DOMAIN=zimbra.test \
       -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
-      -e TIME_ZONE_ID=Europe\\\/Sarajevo \
+      -e TIME_ZONE_ID=$TIME_ZONE_ID \
       -e ADMIN_PW=test123 \
       -e LDAP_ADMIN_PW=zimbra \
       -e LDAP_AMAVIS_PW=zimbra \

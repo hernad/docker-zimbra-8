@@ -86,3 +86,5 @@ IMG=zimbra-88
 NAME=zimbra-88-instance
 
 ZIMBRA_HOST_NAME=zimbra-1.zimbra.test
+
+TIME_ZONE_ID='Europe\\\/Sarajevo'

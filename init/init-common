@@ -129,13 +129,25 @@ function update_zmsetup_config_file {
 }
 
 function update_tzdata_config {
-    echo "Updating tzdata configuration"
-    rm -f /etc/timezone /etc/localtime
-    echo "tzdata tzdata/Areas select ${TZDATA_AREA}" > /tmp/tzdata.txt
-    echo "tzdata tzdata/Zones/${TZDATA_AREA} select ${TZDATA_ZONE}" >> /tmp/tzdata.txt
-    export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
-        debconf-set-selections /tmp/tzdata.txt && \
-        sudo dpkg-reconfigure -f noninteractive tzdata
+    #echo "Updating tzdata configuration"
+    #rm -f /etc/timezone /etc/localtime
+    #echo "tzdata tzdata/Areas select ${TZDATA_AREA}" > /tmp/tzdata.txt
+    #echo "tzdata tzdata/Zones/${TZDATA_AREA} select ${TZDATA_ZONE}" >> /tmp/tzdata.txt
+    #export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
+    #    debconf-set-selections /tmp/tzdata.txt && \
+    #    sudo dpkg-reconfigure -f noninteractive tzdata
+
+    #root@zimbra-1:/opt/zimbra/log# echo "Europe/Sarajevo" > /etc/timezone 
+    #@zimbra-1:/opt/zimbra/log# dpkg-reconfigure -f noninteractive tzdata
+
+    #Current default time zone: 'Europe/Sarajevo'
+    #Local time is now:      Mon Apr  9 12:36:59 CEST 2018.
+    #Universal Time is now:  Mon Apr  9 10:36:59 UTC 2018.
+
+    echo "Europe/Sarajevo" > /tmp/tzdata.txt
+    dpkg-reconfigure -f noniteractive tzdata
+
+
 }
 
 # Sleep until the service address resolves
