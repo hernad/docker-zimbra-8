@@ -27,6 +27,9 @@ done
 
 docker rm -f $NAME
 
+# 8443 - jetty https direct access
+# 7072 - admin console
+
 
 docker run -ti \
       -h $ZIMBRA_HOST_NAME \
@@ -43,8 +46,8 @@ docker run -ti \
       -e LDAP_BES_PW=zimbra \
       -e LDAP_NGINX_PW=zimbra \
       -p 7071:7071  \
+      -p 8443:8443   \
       -p 8143:143   \
-      -p 8443:443   \
       -p 8993:993   \
       \
       -v $VOL_ZIMBRA_INIT:$VOL_ZIMBRA_INIT_SESSION \
