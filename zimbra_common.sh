@@ -70,17 +70,11 @@ VOL_ZIMBRA_CRONTABS_SESSION=/var/spool/cron/crontabs
 VOL_ZIMBRA_REDOLOG=$(pwd)/zimbra/redolog
 VOL_ZIMBRA_REDOLOG_SESSION=/opt/zimbra/redolog
 
-#root@f49c5ba01677:/tmp/release# find /opt/zimbra/data/ldap
-#/opt/zimbra/data/ldap
-#/opt/zimbra/data/ldap/config
-#/opt/zimbra/data/ldap/mdb
-#/opt/zimbra/data/ldap/mdb/db
-#/opt/zimbra/data/ldap/state
-#/opt/zimbra/data/ldap/state/run
-
-
 VOL_ZIMBRA_LOGGER=$(pwd)/zimbra/logger
 VOL_ZIMBRA_LOGGER_SESSION=/opt/zimbra/logger
+
+VOL_ZIMBRA_SSH=$(pwd)/zimbra/ssh
+VOL_ZIMBRA_SSH_SESSION=/etc/ssh
 
 IMG=zimbra-88
 NAME=zimbra-88-instance

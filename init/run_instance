@@ -18,6 +18,7 @@ tar xf /docker_etc/jetty_base.tar.gz
 tar xf /docker_etc/zimbra_ssh.tar.gz
 tar xf /docker_etc/spamassassin.tar.gz
 tar xf /docker_etc/cache_debconf.tar.gz
+tar xf /docker_etc/etc_ssh.tar.gz
 
 fix_zimbra_priviledges
 

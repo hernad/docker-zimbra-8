@@ -5,7 +5,7 @@ source zimbra_common.sh
 docker rm -f $NAME
 
 echo volume $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION  only when running instance
-echo '+ volume common/conf, common/etc'
+echo '+ volume common/conf, common/etc, /etc/ssh'
 docker run -ti \
       -h $ZIMBRA_HOST_NAME \
       --name $NAME \
@@ -48,5 +48,7 @@ docker run -ti \
       -v $VOL_ZIMBRA_ZMSTAT:$VOL_ZIMBRA_ZMSTAT_SESSION \
       -v $VOL_ZIMBRA_CRONTABS:$VOL_ZIMBRA_CRONTABS_SESSION \
       -v $VOL_ZIMBRA_REDOLOG:$VOL_ZIMBRA_REDOLOG_SESSION \
+      \
+      -v $VOL_ZIMBRA_SSH:$VOL_ZIMBRA_SSH_SESSION \
       \
       $IMG bash
