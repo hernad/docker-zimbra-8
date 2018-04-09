@@ -16,6 +16,8 @@ cd /
 echo 'extract /opt/zimbra/jetty_base tar'
 
 tar xf /docker_etc/jetty_base.tar.gz
+tar xf /docker_etc/zimbra_ssh.tar.gz
+tar xf /docker_etc/spamassassin.tar.gz
 
 fix_zimbra_priviledges
 

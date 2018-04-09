@@ -46,7 +46,7 @@ docker run -ti \
       -e LDAP_BES_PW=zimbra \
       -e LDAP_NGINX_PW=zimbra \
       -p 7071:7071  \
-      -p 8443:8443   \
+      -p 8443:8443  \
       -p 8143:143   \
       -p 8993:993   \
       \
