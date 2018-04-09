@@ -2,13 +2,13 @@
 
 source zimbra_common.sh
 
-docker rm -f $NAME
+docker rm -f $ZIMBRA_INSTANCE_NAME
 
 echo volume $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION  only when running instance
 echo '+ volume common/conf, common/etc, /etc/ssh'
-docker run -ti \
+docker run  -d \
       -h $ZIMBRA_HOST_NAME \
-      --name $NAME \
+      --name $ZIMBRA_INSTANCE_NAME \
       -p 7071:7071  \
       -p 8443:8443  \
       -p 8143:143   \
@@ -51,4 +51,4 @@ docker run -ti \
       \
       -v $VOL_ZIMBRA_SSH:$VOL_ZIMBRA_SSH_SESSION \
       \
-      $IMG bash
+      $ZIMBRA_IMG /init/run_instance

@@ -1,5 +1,6 @@
 # usage
 
+## Inicijalizacija zimbra volumena
 
     # setenforce 0
     # ZIMBRA_CLEANUP_VOLUMES=1 - pobrisati lokalne volumene
@@ -7,6 +8,13 @@
     # docker sesija
     # /init/init-zimbra
 
+
+## Pokretanje zimbra instance
+
+     export ZIMBRA_IMG=zimbra88
+     export ZIMBRA_INSTANCE_NAME=zimbra_i1
+     ./run_zimbra_instance.sh
+     docker logs $ZIMBRA_INSTANCE_NAME -f
 
 
 ## diagnostics

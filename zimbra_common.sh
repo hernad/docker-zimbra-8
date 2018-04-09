@@ -76,8 +76,8 @@ VOL_ZIMBRA_LOGGER_SESSION=/opt/zimbra/logger
 VOL_ZIMBRA_SSH=$(pwd)/zimbra/ssh
 VOL_ZIMBRA_SSH_SESSION=/etc/ssh
 
-IMG=zimbra-88
-NAME=zimbra-88-instance
+ZIMBRA_IMG=${ZIMBRA_IMG:-zimbra88}
+ZIMBRA_INSTANCE_NAME=${ZIMBRA_INSTANCE_NAME:-zimbra-instance}
 
 ZIMBRA_HOST_NAME=zimbra-1.zimbra.test
 

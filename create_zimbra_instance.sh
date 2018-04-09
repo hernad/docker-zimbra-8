@@ -25,7 +25,7 @@ done
 
 #-e MAILBOX_HOST_NAME=mailbox \
 
-docker rm -f $NAME
+docker rm -f $ZIMBRA_INSTANCE_NAME
 
 # 8443 - jetty https direct access
 # 7072 - admin console
@@ -33,7 +33,7 @@ docker rm -f $NAME
 
 docker run -ti \
       -h $ZIMBRA_HOST_NAME \
-      --name $NAME \
+      --name $ZIMBRA_INSTANCE_NAME \
       -e ZIMBRA_DEFAULT_DOMAIN=zimbra.test \
       -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
       -e TIME_ZONE_ID=$TIME_ZONE_ID \
@@ -79,4 +79,4 @@ docker run -ti \
       -v $VOL_ZIMBRA_CRONTABS:$VOL_ZIMBRA_CRONTABS_SESSION \
       -v $VOL_ZIMBRA_REDOLOG:$VOL_ZIMBRA_REDOLOG_SESSION \
        \
-       $IMG bash
+       $ZIMBRA_IMG bash

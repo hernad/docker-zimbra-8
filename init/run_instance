@@ -22,4 +22,12 @@ tar xf /docker_etc/etc_ssh.tar.gz
 
 fix_zimbra_priviledges
 
+service ssh start
+service ssh status
 
+
+su zimbra -c "/opt/zimbra/bin/zmcontrol start"
+
+
+echo "OK"
+tail -f /dev/null
