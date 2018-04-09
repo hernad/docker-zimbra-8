@@ -67,6 +67,9 @@ VOL_ZIMBRA_ZMSTAT_SESSION=/opt/zimbra/zmstat
 VOL_ZIMBRA_CRONTABS=$(pwd)/zimbra/crontabs
 VOL_ZIMBRA_CRONTABS_SESSION=/var/spool/cron/crontabs
 
+VOL_ZIMBRA_REDOLOG=$(pwd)/zimbra/redolog
+VOL_ZIMBRA_REDOLOG_SESSION=/opt/zimbra/redolog
+
 #root@f49c5ba01677:/tmp/release# find /opt/zimbra/data/ldap
 #/opt/zimbra/data/ldap
 #/opt/zimbra/data/ldap/config
