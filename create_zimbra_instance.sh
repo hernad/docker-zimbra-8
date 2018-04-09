@@ -31,7 +31,7 @@ docker rm -f $ZIMBRA_INSTANCE_NAME
 # 7072 - admin console
 
 
-docker run -ti \
+docker run -i \
       -h $ZIMBRA_HOST_NAME \
       --name $ZIMBRA_INSTANCE_NAME \
       -e ZIMBRA_DEFAULT_DOMAIN=zimbra.test \
@@ -65,7 +65,6 @@ docker run -ti \
       -v $VOL_ZIMBRA_LDAP_2:$VOL_ZIMBRA_LDAP_2_SESSION \
       -v $VOL_ZIMBRA_LDAP_3:$VOL_ZIMBRA_LDAP_3_SESSION \
       \
-      -v $VOL_ZIMBRA_LOGGER:$VOL_ZIMBRA_LOGGER_SESSION \
       -v $VOL_ZIMBRA_SSL:$VOL_ZIMBRA_SSL_SESSION \
       -v $VOL_ZIMBRA_CLAMAV:$VOL_ZIMBRA_CLAMAV_SESSION \
       -v $VOL_ZIMBRA_AMAVISD:$VOL_ZIMBRA_AMAVISD_SESSION \
@@ -79,4 +78,4 @@ docker run -ti \
       -v $VOL_ZIMBRA_CRONTABS:$VOL_ZIMBRA_CRONTABS_SESSION \
       -v $VOL_ZIMBRA_REDOLOG:$VOL_ZIMBRA_REDOLOG_SESSION \
        \
-       $ZIMBRA_IMG bash
+       $ZIMBRA_IMG /init/init-zimbra
