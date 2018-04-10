@@ -15,6 +15,11 @@
      docker logs $ZIMBRA_INSTANCE_NAME -f
 
 
+## login
+
+    [zimbra88](docs/zimbra88.png)
+ 
+
 ## diagnostics
 
      
