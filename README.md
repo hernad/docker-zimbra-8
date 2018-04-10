@@ -17,7 +17,7 @@
 
 ## login
 
-    [zimbra88](docs/zimbra88.png)
+    ![zimbra88](docs/zimbra88.png)
  
 
 ## diagnostics
