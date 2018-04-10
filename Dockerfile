@@ -19,7 +19,7 @@ RUN apt-get update && \
     software-properties-common \
     vim \
     wget && \
-    apt-get install -y man psutils psmisc ruby-dev gcc && \
+    apt-get install -y man psutils psmisc gcc && \
     apt-get install -y tzdata && \
     apt-get clean
 
@@ -84,5 +84,7 @@ RUN sed -i.bak 's/checkRequired/# checkRequired/' install.sh && \
     rm -rf /tmp/release
 
 #RUN mv /opt/zimbra/conf /opt/zimbra/conf_0
+
+RUN apt-get -y install zimbra-chat zimbra-drive
 
 EXPOSE 22 25 80 110 143 443 465 587 993 995 7071 8443
