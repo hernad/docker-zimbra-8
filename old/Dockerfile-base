@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 # Install Basic Packages
 # Set tzdata info to UTC (Etc/UTC) for image.
 # Runtime will reconfigure to match what is in environment
-RUN apt-get update && \
+RUN apt-get update && apt-get install -y && \
     apt-get install -y \
     curl \
     dnsutils \
