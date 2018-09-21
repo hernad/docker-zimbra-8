@@ -55,10 +55,10 @@ VOL_ZIMBRA_ZIMLETS_SESSION=/opt/zimbra/zimlets-deployed
 VOL_ZIMBRA_TMP=$(pwd)/zimbra/data/tmp
 VOL_ZIMBRA_TMP_SESSION=/opt/zimbra/data/tmp
 
-VOL_ZIMBRA_COMMON=$(pwd)/zimbra/cmmmon/conf
+VOL_ZIMBRA_COMMON=$(pwd)/zimbra/common/conf
 VOL_ZIMBRA_COMMON_SESSION=/opt/zimbra/common/conf
 
-VOL_ZIMBRA_COMMON_2=$(pwd)/zimbra/cmmmon/etc
+VOL_ZIMBRA_COMMON_2=$(pwd)/zimbra/common/etc
 VOL_ZIMBRA_COMMON_2_SESSION=/opt/zimbra/common/etc
 
 VOL_ZIMBRA_ZMSTAT=$(pwd)/zimbra/zmstat
