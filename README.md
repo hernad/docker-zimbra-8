@@ -73,6 +73,25 @@ https://127.0.0.1:7071/zimbraAdmin/
 
 ### fix-1
 
-
 	mv zimbra/cmmmon zimbra/common
+
+
+### upgrade 8.8.8 - 8.8.9
+
+      
+upgrade baze podataka i ldap-a:
+
+
+    ./enter_into_zimbra_instance.sh
+    # Release 8.8.8.GA.2009.UBUNTU16.64 UBUNTU16_64 FOSS edition.
+    /init/upgrade/zimbra_88_89.sh
+
+
+nakon toga koristiti zimbra image 8.8.9
+
+    export ZIMBRA_VER=8.8.9
+    export ZIMBRA_IMG=hernad/zimbra_${ZIMBRA_VER}
+    export ZIMBRA_INSTANCE_NAME=zimbra_i1
+    ./run_zimbra_instance.sh
+ 
 
