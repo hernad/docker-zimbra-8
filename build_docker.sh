@@ -2,4 +2,6 @@
 
 source zimbra_common.sh
 
-docker build -t $ZIMBRA_IMG .
+ZIMBRA_VER=${ZIMBRA_VER:-8.8.9}
+
+docker build -f Dockerfile_$ZIMBRA_VER -t $ZIMBRA_IMG .

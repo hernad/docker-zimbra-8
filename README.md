@@ -11,7 +11,8 @@
 
 ## Pokretanje zimbra instance
 
-     export ZIMBRA_IMG=hernad/zimbra88
+     export ZIMBRA_VER=8.8.9
+     export ZIMBRA_IMG=hernad/zimbra_${ZIMBRA_VER}
      export ZIMBRA_INSTANCE_NAME=zimbra_i1
      ./run_zimbra_instance.sh
      docker logs $ZIMBRA_INSTANCE_NAME -f
