@@ -27,6 +27,10 @@ konfiguracija se snima u zimbra volumen DOCKER_ETC
     #ZIMBRA_CLEANUP_VOLUMES=1 - pobrisati lokalne volumene
     export ZIMBRA_ADMIN_PASSWORD=test123
     export ZIMBRA_SERVICE_PASSWORD=zimbra
+    export ZIMBRA_VER=8.8.9
+    export ZIMBRA_IMG=hernad/zimbra_${ZIMBRA_VER}
+    export ZIMBRA_INSTANCE_NAME=zimbra_i1
+ 
     ZIMBRA_CLEANUP_VOLUMES=1 ./create_zimbra_instance.sh
 
 
