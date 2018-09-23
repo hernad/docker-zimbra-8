@@ -4,6 +4,8 @@ docker inspect -f "{{ .Mounts }}" zimbra_i1
 <pre>
 [
 {bind  /home/hernad/docker-zimbra-88/init /init   true rprivate} 
+{bind  /home/hernad/docker-zimbra-88/docker_etc /docker_etc   true rprivate} 
+
 {bind  /home/hernad/docker-zimbra-88/zimbra/data/postfix/data /opt/zimbra/data/postfix/data   true rprivate} 
 {bind  /home/hernad/docker-zimbra-88/zimbra/system_log /var/log   true rprivate} 
 {bind  /home/hernad/docker-zimbra-88/zimbra/data/tmp /opt/zimbra/data/tmp   true rprivate} 
@@ -24,7 +26,6 @@ docker inspect -f "{{ .Mounts }}" zimbra_i1
 {bind  /home/hernad/docker-zimbra-88/zimbra/ssh /etc/ssh   true rprivate} 
 {bind  /home/hernad/docker-zimbra-88/zimbra/data/ldap/config /opt/zimbra/data/ldap/config   true rprivate} 
 {bind  /home/hernad/docker-zimbra-88/zimbra/ssl /opt/zimbra/ssl   true rprivate} 
-{bind  /home/hernad/docker-zimbra-88/docker_etc /docker_etc   true rprivate} 
 {bind  /home/hernad/docker-zimbra-88/zimbra/zmstat /opt/zimbra/zmstat   true rprivate} 
 {bind  /home/hernad/docker-zimbra-88/zimbra/data/ldap/mdb/db /opt/zimbra/data/ldap/mdb/db   true rprivate} 
 {bind  /home/hernad/docker-zimbra-88/zimbra/data/amavisd/db /opt/zimbra/data/amavisd/db   true rprivate}

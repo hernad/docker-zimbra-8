@@ -1,5 +1,26 @@
 # usage
 
+## Šta je šta
+
+### ZIMBRA_VER
+
+zimbra verzija (npr. 8.8.8, ili 8.8.9)
+
+### ZIMBRA_IMG 
+
+docker image koji sadrži zimbra software, npr. sadrži 8.8.9 sa patch 5
+
+## ZIMBRA instance
+
+operacijom kreiranja na osnovu nekog ZIMBRA_IMG se inicijalizira instanca (zimbra-1.zimbra.test) - inicijaliziraju se baze, ldap, konfiguracija.
+
+Po uspješnom kreiranju instance docker volumeni zimbre sadrže potrebne podatke,
+konfiguracija se snima u zimbra volumen DOCKER_ETC
+
+
+
+
+
 ## Inicijalizacija zimbra volumena
 
     setenforce 0
