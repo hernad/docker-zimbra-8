@@ -2,6 +2,15 @@
 
 source zimbra_common.sh
 
+if [ -z "$ZIMBRA_SERVICE_PASSWORD" ] ; then
+  ZIMBRA_SERVICE_PASSWORD=zimbra
+fi
+
+if [ -z "$ZIMBRA_ADMIN_PASSWORD" ] ; then
+  ZIMBRA_ADMIN_PASSWORD=test123
+fi
+
+
 if [ "$ZIMBRA_CLEANUP_VOLUMES" == "1" ] ; then
 	sudo chown -R $(whoami) $(pwd)/zimbra 
 fi
@@ -37,14 +46,14 @@ docker run  \
       -e ZIMBRA_DEFAULT_DOMAIN=$ZIMBRA_DEFAULT_DOMAIN \
       -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
       -e TIME_ZONE_ID=$TIME_ZONE_ID \
-      -e ADMIN_PW=test123 \
-      -e LDAP_ADMIN_PW=zimbra \
-      -e LDAP_AMAVIS_PW=zimbra \
-      -e LDAP_POSTFIX_PW=zimbra \
-      -e LDAP_REPLICATION_PW=zimbra \
-      -e LDAP_ROOT_PW=zimbra \
-      -e LDAP_BES_PW=zimbra \
-      -e LDAP_NGINX_PW=zimbra \
+      -e ADMIN_PW=$ZIMBRA_ADMIN_PASSWORD \
+      -e LDAP_ADMIN_PW=$ZIMBRA_SERVICE_PASSWORD \
+      -e LDAP_AMAVIS_PW=$ZIMBRA_SERVICE_PASSWORD \
+      -e LDAP_POSTFIX_PW=$ZIMBRA_SERVICE_PASSWORD \
+      -e LDAP_REPLICATION_PW=$ZIMBRA_SERVICE_PASSWORD \
+      -e LDAP_ROOT_PW=$ZIMBRA_SERVICE_PASSWORD \
+      -e LDAP_BES_PW=$ZIMBRA_SERVICE_PASSWORD \
+      -e LDAP_NGINX_PW=$ZIMBRA_SERVICE_PASSWORD \
       -p 7071:7071  \
       -p 8443:8443  \
       -p 8143:143   \

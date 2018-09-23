@@ -13,10 +13,12 @@ cp -av /docker_etc/common_conf/* /opt/zimbra/common/conf/
 cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
 
 cd /
-echo 'extract /opt/zimbra/jetty_base, logger, zimbra_ssh, spamassassin, cache_debconf tars'
+echo "extract instance configuration created during create instance phase:"
+echo "   /opt/zimbra/jetty_base, logger, zimbra_ssh, spamassassin, cache_debconf tars"
 tar xf /docker_etc/jetty_base.tar.gz
 tar xf /docker_etc/logger.tar.gz
 tar xf /docker_etc/zimbra_ssh.tar.gz
+tar xf /docker_etc/zimbra_saveconfig.tar.gz
 tar xf /docker_etc/spamassassin.tar.gz
 tar xf /docker_etc/cache_debconf.tar.gz
 tar xf /docker_etc/etc_ssh.tar.gz

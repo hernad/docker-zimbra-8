@@ -53,6 +53,7 @@ docker run  -d \
       \
       -v $VOL_ZIMBRA_SSH:$VOL_ZIMBRA_SSH_SESSION \
       \
+      -v $VOL_ZIMBRA_HOME_SSH:$VOL_ZIMBRA_HOME_SSH_SESSION \
+      -v $VOL_ZIMBRA_HOME_SAVECONFIG:$VOL_ZIMBRA_HOME_SAVECONFIG_SESSION \
+      \
       $ZIMBRA_IMG /init/run_instance
-
-

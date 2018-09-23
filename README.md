@@ -4,6 +4,8 @@
 
     setenforce 0
     #ZIMBRA_CLEANUP_VOLUMES=1 - pobrisati lokalne volumene
+    export ZIMBRA_ADMIN_PASSWORD=test123
+    export ZIMBRA_SERVICE_PASSWORD=zimbra
     ZIMBRA_CLEANUP_VOLUMES=1 ./create_zimbra_instance.sh
 
 
@@ -38,3 +40,13 @@ https://127.0.0.1:8443
 admin console:
 
 https://127.0.0.1:7071/zimbraAdmin/
+
+
+## upgrades
+
+
+### fix-1
+
+
+	mv zimbra/cmmmon zimbra/common
+

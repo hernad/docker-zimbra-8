@@ -76,6 +76,16 @@ VOL_ZIMBRA_LOGGER_SESSION=/opt/zimbra/logger
 VOL_ZIMBRA_SSH=$(pwd)/zimbra/ssh
 VOL_ZIMBRA_SSH_SESSION=/etc/ssh
 
+
+# zimbra .ssh
+VOL_ZIMBRA_HOME_SSH=$(pwd)/zimbra/dot_ssh
+VOL_ZIMBRA_HOME_SSH_SESSION=/opt/zimbra/.ssh
+
+# zimbra .saveconfig
+VOL_ZIMBRA_HOME_SAVECONFIG=$(pwd)/zimbra/dot_ssh
+VOL_ZIMBRA_HOME_SAVECONFIG_SESSION=/opt/zimbra/.saveconfig
+
+
 ZIMBRA_IMG=${ZIMBRA_IMG:-zimbra88}
 ZIMBRA_INSTANCE_NAME=${ZIMBRA_INSTANCE_NAME:-zimbra-instance}
 

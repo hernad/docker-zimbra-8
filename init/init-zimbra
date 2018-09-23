@@ -15,7 +15,10 @@ fix_zimbra_priviledges
 zimbra_fqdn=${ZIMBRA_HOST_NAME}
 update_host_entry ${zimbra_fqdn}
 update_tzdata_config
+
+# update init/config (passwords)
 update_zmsetup_config_file
+
 
 # Configure Zimbra
 /opt/zimbra/libexec/zmsetup.pl -c /init/config
@@ -47,6 +50,7 @@ cp -av /opt/zimbra/common/etc/* /docker_etc/common_etc/
 tar cfz /docker_etc/jetty_base.tar.gz /opt/zimbra/jetty_base/
 tar cfz /docker_etc/logger.tar.gz /opt/zimbra/logger/
 tar cfz /docker_etc/zimbra_ssh.tar.gz /opt/zimbra/.ssh
+tar cfz /docker_etc/zimbra_saveconfig.tar.gz /opt/zimbra/.saveconfig
 tar cfz /docker_etc/spamassassin.tar.gz /opt/zimbra/data/spamassassin/
 tar cfz /docker_etc/cache_debconf.tar.gz /var/cache/debconf
 tar cfz /docker_etc/etc_ssh.tar.gz /etc/ssh
