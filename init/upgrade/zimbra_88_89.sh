@@ -15,10 +15,10 @@ cd $FILE_BASE
 yes yes | ./install.sh --softwareonly
 
 cd /
-tar cvf /docker_etc/zimbra_saveconfig.tar.gz
+tar cvf /docker_etc/zimbra_saveconfig.tar.gz /opt/zimbra/.saveconfig
 
 
 if  /opt/zimbra/libexec/zmsetup.pl -c /init/config ; then
    # saveconfig after upgrade
-   tar cvf /docker_etc/zimbra_saveconfig.tar.gz
+   tar cvf /docker_etc/zimbra_saveconfig.tar.gz /opt/zimbra/.saveconfig
 fi
