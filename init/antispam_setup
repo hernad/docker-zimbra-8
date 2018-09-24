@@ -5,20 +5,20 @@ zmlocalconfig -e antispam_enable_rule_updates=true
 zmlocalconfig -e antispam_enable_restarts=true
 
 zmprov mcf \
-zimbraMtaRestriction “reject_rbl_client zen.spamhaus.org” \
-zimbraMtaRestriction “reject_rbl_client psbl.surriel.com” \
-zimbraMtaRestriction “reject_rbl_client b.barracudacentral.org” \
-zimbraMtaRestriction “reject_rbl_client bl.spamcop.net”
+zimbraMtaRestriction "reject_rbl_client zen.spamhaus.org" \
+zimbraMtaRestriction "reject_rbl_client psbl.surriel.com" \
+zimbraMtaRestriction "reject_rbl_client b.barracudacentral.org" \
+zimbraMtaRestriction "reject_rbl_client bl.spamcop.net"
 
 zmprov mcf \
-zimbraMtaRestriction “reject_rhsbl_client dbl.spamhaus.org” \
-zimbraMtaRestriction “reject_rhsbl_client multi.surbl.org” \
-zimbraMtaRestriction “reject_rhsbl_client rhsbl.sorbs.net”
+zimbraMtaRestriction "reject_rhsbl_client dbl.spamhaus.org" \
+zimbraMtaRestriction "reject_rhsbl_client multi.surbl.org" \
+zimbraMtaRestriction "reject_rhsbl_client rhsbl.sorbs.net"
 
 zmprov mcf \
-zimbraMtaRestriction “reject_rhsbl_sender multi.surbl.org” \
-zimbraMtaRestriction “reject_rhsbl_sender rhsbl.sorbs.net” \
-zimbraMtaRestriction “reject_rhsbl_sender dbl.spamhaus.org”
+zimbraMtaRestriction "reject_rhsbl_sender multi.surbl.org" \
+zimbraMtaRestriction "reject_rhsbl_sender rhsbl.sorbs.net" \
+zimbraMtaRestriction "reject_rhsbl_sender dbl.spamhaus.org"
 
-zmprov mcf +zimbraMtaRestriction “reject_rhsbl_reverse_client dbl.spamhaus.org”
+zmprov mcf +zimbraMtaRestriction "reject_rhsbl_reverse_client dbl.spamhaus.org"
 zmprov mcf -zimbraMtaRestriction "reject_rhsbl_sender multi.uribl.com"

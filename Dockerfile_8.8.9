@@ -72,4 +72,15 @@ RUN apt-get -y install zimbra-chat zimbra-drive
 
 RUN apt-get -y install rsyslog
 
+# zimlet account history
+RUN     wget --no-cache https://github.com/Zimbra-Community/account-history/raw/master/account-history-installer.sh -O /tmp/account-history-installer.sh && chmod +rx /tmp/account-history-installer.sh && \
+        ( yes yes | /tmp/account-history-installer.sh || true ) &&\
+        cd /tmp/accountHistory.* ; cd account-history && \
+        cd zimlet/tk_barrydegraaff_account_history ; zip -r  /opt/zimbra/zimlets/tk_barrydegraaff_account_history.zip * ; cd ../.. && \
+        mkdir -p /opt/zimbra/lib/ext/accountHistory ; cp -v extension/out/artifacts/accountHistory_jar/accountHistory.jar /opt/zimbra/lib/ext/accountHistory/accountHistory.jar &&\
+        cd adminZimlet/tk_barrydegraaff_accounthistory_admin/ ; zip -r /opt/zimbra/zimlets/tk_barrydegraaff_accounthistory_admin.zip * ; cd ../..  && \
+        mkdir -p /opt/zimbra/lib/ext/AccountHistoryAdmin ;  cp adminExtension/out/artifacts/AccountHistoryAdmin/AccountHistoryAdmin.jar /opt/zimbra/lib/ext/AccountHistoryAdmin/AccountHistoryAdmin.jar && \
+        rm -rf /tmp/account* && echo zimleti "spremni za instalaciju u /opt/zimbra/zimlets" 
+
+
 EXPOSE 22 25 80 110 143 443 465 587 993 995 7071 8443

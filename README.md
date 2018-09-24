@@ -10,6 +10,12 @@ zimbra verzija (npr. 8.8.8, ili 8.8.9)
 
 docker image koji sadrži zimbra software, npr. sadrži 8.8.9 sa patch 5
 
+
+    export ZIMBRA_VER=8.8.9
+    export ZIMBRA_IMG=hernad/zimbra_${ZIMBRA_VER}
+    ./build_docker.sh
+
+
 ## ZIMBRA instance
 
 operacijom kreiranja na osnovu nekog ZIMBRA_IMG se inicijalizira instanca (zimbra-1.zimbra.test) - inicijaliziraju se baze, ldap, konfiguracija.

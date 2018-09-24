@@ -36,6 +36,29 @@ su - zimbra -c "/opt/zimbra/bin/zmcontrol start"
 echo "zimbra version:"
 su - zimbra -c "zmprov getServer ${ZIMBRA_HOST_NAME} zimbraServerVersion"
 
+ZIMBRA_RESTART=0
+ZIMLET=tk_barrydegraaff_account_history  
+if  !  su - zimbra -c "zmzimletctl info $ZIMLET" ; then
+  su - zimbra -c "zmzimletctl deploy /opt/zimbra/zimlets/$ZIMLET.zip"
+  ZIMBRA_RESTART=1
+fi
+
+ZIMLET=tk_barrydegraaff_accounthistory_admin  
+if  !  su - zimbra -c "zmzimletctl info $ZIMLET" ; then
+  su - zimbra -c "zmzimletctl deploy /opt/zimbra/zimlets/$ZIMLET.zip"
+  ZIMBRA_RESTART=1
+fi
+
+if [ "$ZIMBRA_RESTART" == "1" ] ; then
+  su - zimbra -c "zmcontrol restart"
+fi
+
+
+# https://github.com/Zimbra-Community/account-history#log-external-ip
+su - zimbra -c "zmlocalconfig zimbra_http_originating_ip_header"
+su - zimbra -c "zimbra_http_originating_ip_header = X-Forwarded-For"
+su - zimbra -c "zmprov mcf +zimbraMailTrustedIP 127.0.0.1"
+
 su - zimbra -c "/init/antispam_setup"
 
 echo "===RUN_END=="
