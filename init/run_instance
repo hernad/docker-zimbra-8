@@ -28,11 +28,15 @@ fix_zimbra_priviledges
 service ssh start
 service ssh status
 
+chmod g+w /opt/zimbra/common/conf
+
 su - zimbra -c "/opt/zimbra/bin/zmcontrol start"
 
 
 echo "zimbra version:"
 su - zimbra -c "zmprov getServer ${ZIMBRA_HOST_NAME} zimbraServerVersion"
+
+su - zimbra -c "/init/antispam_setup"
 
 echo "===RUN_END=="
 tail -f /dev/null

@@ -70,4 +70,6 @@ RUN sed -i.bak 's/checkRequired/# checkRequired/' install.sh && \
 
 RUN apt-get -y install zimbra-chat zimbra-drive
 
+RUN apt-get -y install rsyslog
+
 EXPOSE 22 25 80 110 143 443 465 587 993 995 7071 8443
