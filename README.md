@@ -87,7 +87,7 @@ upgrade baze podataka i ldap-a:
     /init/upgrade/zimbra_88_89.sh
 
 
-nakon toga koristiti zimbra image 8.8.9
+nakon toga koristiti zimbra image 8.8.9:
 
     export ZIMBRA_VER=8.8.9
     export ZIMBRA_IMG=hernad/zimbra_${ZIMBRA_VER}
