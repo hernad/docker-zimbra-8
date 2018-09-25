@@ -1,6 +1,12 @@
 #!/bin/bash
 source /init/init-common
 
+
+if  [ -f /opt/zimbra/data/ldap/mdb/db/data.mdb  ] ; then
+   echo "postoje ldap podaci"
+   exit 1
+fi
+
 #echo "/opt/zimbra/conf_0 - conf volume"
 #rm -rf /opt/zimbra/conf/*
 
