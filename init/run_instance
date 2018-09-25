@@ -61,5 +61,12 @@ su - zimbra -c "zmprov mcf +zimbraMailTrustedIP 127.0.0.1"
 
 su - zimbra -c "/init/antispam_setup"
 
+
+rm /var/run/rsyslogd.pid
+rsyncd
+
+/var/run/crond.pid
+cron
+
 echo "===RUN_END=="
 tail -f /dev/null
