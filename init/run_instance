@@ -15,13 +15,30 @@ cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
 cd /
 echo "extract instance configuration created during create instance phase:"
 echo "   /opt/zimbra/jetty_base, logger, zimbra_ssh, spamassassin, cache_debconf tars"
+
+if [ ! -f /opt/zimbra/logger/db/data/logger.sqlitedb ] ; then
+  tar xf /docker_etc/logger.tar.gz
+fi
+
+if [ ! -f /opt/zimbra/.ssh/zimbra_identity ] ; then
+  tar xf /docker_etc/zimbra_ssh.tar.gz
+fi
+
+if [ ! -f /opt/zimbra/.saveconfig/slapd.key ] ; then
+  tar xf /docker_etc/zimbra_saveconfig.tar.gz
+fi
+
+
+if [ ! -f /opt/zimbra/data/spamassassin/localrules/salocal.cf ] ; then
+   tar xf /docker_etc/spamassassin.tar.gz
+fi
+
+if [ ! -f /etc/ssh/ssh_host_rsa_key.pub ] ; then
+    tar xf /docker_etc/etc_ssh.tar.gz
+fi
+
 tar xf /docker_etc/jetty_base.tar.gz
-tar xf /docker_etc/logger.tar.gz
-tar xf /docker_etc/zimbra_ssh.tar.gz
-tar xf /docker_etc/zimbra_saveconfig.tar.gz
-tar xf /docker_etc/spamassassin.tar.gz
 tar xf /docker_etc/cache_debconf.tar.gz
-tar xf /docker_etc/etc_ssh.tar.gz
 
 fix_zimbra_priviledges
 

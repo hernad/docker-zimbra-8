@@ -47,14 +47,14 @@ mkdir -p /docker_etc/common_etc
 cp -av /opt/zimbra/common/conf/* /docker_etc/common_conf/
 cp -av /opt/zimbra/common/etc/* /docker_etc/common_etc/
 
-tar cfz /docker_etc/jetty_base.tar.gz /opt/zimbra/jetty_base/
 tar cfz /docker_etc/logger.tar.gz /opt/zimbra/logger/
 tar cfz /docker_etc/zimbra_ssh.tar.gz /opt/zimbra/.ssh
 tar cfz /docker_etc/zimbra_saveconfig.tar.gz /opt/zimbra/.saveconfig
 tar cfz /docker_etc/spamassassin.tar.gz /opt/zimbra/data/spamassassin/
-tar cfz /docker_etc/cache_debconf.tar.gz /var/cache/debconf
 tar cfz /docker_etc/etc_ssh.tar.gz /etc/ssh
 
+tar cfz /docker_etc/jetty_base.tar.gz /opt/zimbra/jetty_base/
+tar cfz /docker_etc/cache_debconf.tar.gz /var/cache/debconf
 #echo "SETUP COMPLETE"
 #/bin/sleep infinity
 

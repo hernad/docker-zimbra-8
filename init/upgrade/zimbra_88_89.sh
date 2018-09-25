@@ -19,6 +19,13 @@ tar cvf /docker_etc/zimbra_saveconfig.tar.gz /opt/zimbra/.saveconfig
 
 
 if  /opt/zimbra/libexec/zmsetup.pl -c /init/config ; then
+   cd /
    # saveconfig after upgrade
    tar cvf /docker_etc/zimbra_saveconfig.tar.gz /opt/zimbra/.saveconfig
+
+   tar cfz /docker_etc/jetty_base.tar.gz /opt/zimbra/jetty_base/
+   tar cfz /docker_etc/cache_debconf.tar.gz /var/cache/debconf
 fi
+
+
+#
