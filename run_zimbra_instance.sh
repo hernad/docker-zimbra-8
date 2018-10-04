@@ -2,6 +2,14 @@
 
 source zimbra_common.sh
 
+
+if [ -d zimbra/cmmmon ] ; then
+  echo "direktoriji zimbra/cmmmon preimenovati u zimbra/common"
+  exit 1
+fi
+
+
+
 docker rm -f $ZIMBRA_INSTANCE_NAME
 
 echo volume $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION  only when running instance

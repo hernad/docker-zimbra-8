@@ -57,6 +57,7 @@ cron
 
 chmod g+w /opt/zimbra/common/conf
 
+su - zimbra -c "/opt/zimbra/bin/zmcontrol stop"
 su - zimbra -c "/opt/zimbra/bin/zmcontrol start"
 
 
