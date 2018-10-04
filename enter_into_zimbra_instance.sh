@@ -14,6 +14,8 @@ docker exec  $ZIMBRA_INSTANCE_NAME \
 docker exec  $ZIMBRA_INSTANCE_NAME \
    /bin/bash -c 'su zimbra -c "/opt/zimbra/bin/zmcertmgr viewdeployedcrt"'
 
+docker exec  $ZIMBRA_INSTANCE_NAME \
+   /bin/bash -c 'su zimbra -c "/opt/zimbra/bin/zmprov gs '$ZIMBRA_HOST_NAME' zimbraImapSSLBindPort"'
 
 
 docker exec  -ti \

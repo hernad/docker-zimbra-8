@@ -93,4 +93,7 @@ ZIMBRA_INSTANCE_NAME=${ZIMBRA_INSTANCE_NAME:-zimbra-instance}
 ZIMBRA_DEFAULT_DOMAIN=zimbra.test
 ZIMBRA_HOST_NAME=zimbra-1.${ZIMBRA_DEFAULT_DOMAIN}
 
+#zmprov gs zimbra.bring.out.ba zimbraImapSSLBindPort
+ZIMBRA_IMAPS_PORT=7993
+
 TIME_ZONE_ID='Europe\/Sarajevo'
