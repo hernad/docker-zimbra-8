@@ -20,9 +20,13 @@ docker run  -d \
       -e ZIMBRA_DEFAULT_DOMAIN=$ZIMBRA_DEFAULT_DOMAIN \
       -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
       -p 7071:7071  \
-      -p 8443:8443  \
-      -p 8143:143   \
-      -p 8993:993   \
+      -p 8443:8443 \
+      -p 8143:143  \
+      -p 993:993   \
+      -p 8088:80   \
+      -p 8025:25   \
+      -p 587:587   \
+      -p 465:465   \
       \
       -v $VOL_ZIMBRA_INIT:$VOL_ZIMBRA_INIT_SESSION \
       -v $VOL_ZIMBRA_ETC:$VOL_ZIMBRA_ETC_SESSION \
