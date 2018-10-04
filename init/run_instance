@@ -9,8 +9,8 @@ if  [ ! -f /opt/zimbra/conf/my.cnf ] ; then
   cp -av /docker_etc/conf/* /opt/zimbra/conf/
 fi
 
-cp -av /docker_etc/common_conf/* /opt/zimbra/common/conf/
-cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
+#cp -av /docker_etc/common_conf/* /opt/zimbra/common/conf/
+#cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
 
 cd /
 echo "extract instance configuration created during create instance phase:"
