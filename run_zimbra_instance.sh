@@ -17,6 +17,7 @@ echo '+ volume common/conf, common/etc, logger, /etc/ssh'
 docker run  -d \
       -h $ZIMBRA_HOST_NAME \
       --name $ZIMBRA_INSTANCE_NAME \
+      --restart unless-stopped \
       -e ZIMBRA_DEFAULT_DOMAIN=$ZIMBRA_DEFAULT_DOMAIN \
       -e ZIMBRA_HOST_NAME=$ZIMBRA_HOST_NAME \
       -p 7071:7071  \
