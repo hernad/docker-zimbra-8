@@ -4,7 +4,7 @@ source zimbra_common.sh
 
 
 if [ -d zimbra/cmmmon ] ; then
-  echo "direktoriji zimbra/cmmmon preimenovati u zimbra/common"
+  echo "direktorij zimbra/cmmmon preimenovati u zimbra/common"
   exit 1
 fi
 
@@ -28,6 +28,10 @@ docker run  -d \
       -p 8025:25   \
       -p 587:587   \
       -p 465:465   \
+      \
+      -e ZIMBRA_SERVER=$ZIMBRA_HOST_NAME \
+      -e ZIMBRA_GATEWAY=$ZIMBRA_GATEWAY \
+      -e ZIMBRA_MY_NETWORKS="$ZIMBRA_MY_NETWORKS" \
       \
       -v $VOL_ZIMBRA_INIT:$VOL_ZIMBRA_INIT_SESSION \
       -v $VOL_ZIMBRA_ETC:$VOL_ZIMBRA_ETC_SESSION \
