@@ -98,6 +98,9 @@ su - zimbra -c "zmprov ms $ZIMBRA_SERVER zimbraMtaRelayHost $ZIMBRA_GATEWAY"
 
 su - zimbra -c "/init/antispam_setup"
 
+# nakon setupa zimbraMtaMyNetworks, zimbraMtaRelayHost restart postfix
+su - zimbra -c "postfix reload"
+
 
 echo "===RUN_END=="
 tail -f /dev/null
