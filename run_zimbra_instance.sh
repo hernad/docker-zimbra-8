@@ -14,6 +14,7 @@ docker rm -f $ZIMBRA_INSTANCE_NAME
 
 echo volume $VOL_ZIMBRA_CONF:$VOL_ZIMBRA_CONF_SESSION  only when running instance
 echo '+ volume common/conf, common/etc, logger, /etc/ssh'
+echo "+ gw: $ZIMBRA_GATEWAY, my_networks: $ZIMBRA_MY_NETWORKS"
 docker run  -d \
       -h $ZIMBRA_HOST_NAME \
       --name $ZIMBRA_INSTANCE_NAME \
