@@ -45,15 +45,8 @@ fix_zimbra_priviledges
 service ssh start
 service ssh status
 
-echo rsyslogd start
-rm /var/run/rsyslogd.pid
-rsyslogd
-
-echo cron start
-/var/run/crond.pid
-cron 
-
-
+echo "zmfixperms - ovo ce potrajati ..."
+/opt/zimbra/libexec/zmfixperms -e -v
 
 chmod g+w /opt/zimbra/common/conf
 
@@ -101,6 +94,12 @@ su - zimbra -c "/init/antispam_setup"
 # nakon setupa zimbraMtaMyNetworks, zimbraMtaRelayHost restart postfix
 su - zimbra -c "postfix reload"
 
+killall cron
+killall rsyslogd
+[ -f /var/run/ryslogd.pid ] && rm /var/run/rsyslogd.pid
+[ -f /var/run/crond.pid ] && /var/run/crond.pid
+cron
+rsyslogd
 
 echo "===RUN_END=="
 tail -f /dev/null
