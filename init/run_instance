@@ -1,16 +1,22 @@
 #!/bin/bash
 
-source /init/init-common
+# hernad 16.10.2018; v27
 
+source /init/init-common
 
 cp -av /docker_etc/etc/* /etc/
 
-if  [ ! -f /opt/zimbra/conf/my.cnf ] ; then
-  cp -av /docker_etc/conf/* /opt/zimbra/conf/
+if [ ! -f /opt/zimbra/common/etc/java/cacerts ] ; then
+   cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
 fi
 
-#cp -av /docker_etc/common_conf/* /opt/zimbra/common/conf/
-#cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
+if [ ! -f /opt/zimbra/conf/dhparam.pem ] ; then
+   cp -av /docker_etc/conf/* /opt/zimbra/conf/
+fi
+
+if [ ! -f /opt/zimbra/common/conf/master.cf ] ; then
+   cp -av /docker_etc/common_conf/* /opt/zimbra/common/conf/
+fi
 
 cd /
 echo "extract instance configuration created during create instance phase:"
@@ -45,8 +51,8 @@ fix_zimbra_priviledges
 service ssh start
 service ssh status
 
-echo "zmfixperms - ovo ce potrajati ..."
-/opt/zimbra/libexec/zmfixperms -e -v
+#echo "zmfixperms - ovo ce potrajati ..."
+#/opt/zimbra/libexec/zmfixperms -e -v
 
 chmod g+w /opt/zimbra/common/conf
 
@@ -58,13 +64,13 @@ echo "zimbra version:"
 su - zimbra -c "zmprov getServer ${ZIMBRA_HOST_NAME} zimbraServerVersion"
 
 ZIMBRA_RESTART=0
-ZIMLET=tk_barrydegraaff_account_history  
+ZIMLET=tk_barrydegraaff_account_history
 if  !  su - zimbra -c "zmzimletctl info $ZIMLET" ; then
   su - zimbra -c "zmzimletctl deploy /opt/zimbra/zimlets/$ZIMLET.zip"
   ZIMBRA_RESTART=1
 fi
 
-ZIMLET=tk_barrydegraaff_accounthistory_admin  
+ZIMLET=tk_barrydegraaff_accounthistory_admin
 if  !  su - zimbra -c "zmzimletctl info $ZIMLET" ; then
   su - zimbra -c "zmzimletctl deploy /opt/zimbra/zimlets/$ZIMLET.zip"
   ZIMBRA_RESTART=1
@@ -74,8 +80,8 @@ if [ "$ZIMBRA_RESTART" == "1" ] ; then
   su - zimbra -c "zmcontrol restart"
 fi
 
-if ! su - zimbra -c "zmstatctl status"  ; then 
-   su - zimbra -c "zmstatctl restart" 
+if ! su - zimbra -c "zmstatctl status"  ; then
+   su - zimbra -c "zmstatctl restart"
 fi
 
 
