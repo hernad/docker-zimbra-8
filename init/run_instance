@@ -93,6 +93,12 @@ su - zimbra -c "zmprov mcf +zimbraMailTrustedIP 127.0.0.1"
 su - zimbra -c "zmprov ms $ZIMBRA_SERVER zimbraMtaMyNetworks '$ZIMBRA_MY_NETWORKS'"
 su - zimbra -c "zmprov ms $ZIMBRA_SERVER zimbraMtaRelayHost $ZIMBRA_GATEWAY"
 
+
+echo "forwarding iskljucen - antispam/antiforge mjera"
+su - zimbra -c "zmprov modifyCos defaultExternal zimbraFeatureMailForwardingEnabled FALSE"
+su - zimbra -c "zmprov modifyCos default zimbraFeatureMailForwardingEnabled FALSE"
+
+
 #su - zimbra -c "zmtlsctl both"
 
 su - zimbra -c "/init/antispam_setup"

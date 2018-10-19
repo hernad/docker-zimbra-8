@@ -21,6 +21,10 @@ docker exec  $ZIMBRA_INSTANCE_NAME \
    /bin/bash -c 'su zimbra -c "/opt/zimbra/bin/zmprov gs ''$ZIMBRA_SERVER'' zimbraImapSSLBindPort"'
 
 
+docker exec  $ZIMBRA_INSTANCE_NAME \
+   /bin/bash -c 'su zimbra -c "/opt/zimbra/bin/zmprov zmprov gac -v | grep zimbraFeatureMailForwardingEnabled"'
+
+
 docker exec  -ti \
        $ZIMBRA_INSTANCE_NAME \
        /bin/bash
