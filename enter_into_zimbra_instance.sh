@@ -22,7 +22,7 @@ docker exec  $ZIMBRA_INSTANCE_NAME \
 
 
 docker exec  $ZIMBRA_INSTANCE_NAME \
-   /bin/bash -c 'su zimbra -c "/opt/zimbra/bin/zmprov zmprov gac -v | grep zimbraFeatureMailForwardingEnabled"'
+   /bin/bash -c 'su zimbra -c "/opt/zimbra/bin/zmprov gac -v | grep zimbraFeatureMailForwardingEnabled"'
 
 
 docker exec  -ti \
