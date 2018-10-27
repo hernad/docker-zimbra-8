@@ -91,4 +91,6 @@ COPY    apt/zimbra-imapd_8.8.9.GA.3019.UBUNTU16.64_amd64.deb  /tmp/
 
 RUN     dpkg -i /tmp/zimbra-imapd_8.8.9.GA.3019.UBUNTU16.64_amd64.deb  ; rm -rf /tmp/zimbra*deb
 
+RUN     apt-get -y remove zimbra-chat ; apt-get -y update; apt-get upgrade -y; apt-get install -y zimbra-patch
+
 EXPOSE 22 25 80 110 143 443 465 587 993 995 7071 8443

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# hernad 27.10.2018; v28
+# hernad 27.10.2018; v29
 
 source /init/init-common
 
@@ -101,12 +101,16 @@ su - zimbra -c "zmprov modifyCos default zimbraFeatureMailForwardingEnabled FALS
 echo "disable chat service"
 su - zimbra -c "zmprov ms $ZIMBRA_SERVER zimbraChatServiceEnabled FALSE"
 
+su - zimbra -c "zmzimletctl disable com_zextras_chat_open"
+su - zimbra -c "zmzimletctl undeploy com_zextras_chat_open"
+
+
 #su - zimbra -c "zmtlsctl both"
 
 su - zimbra -c "/init/antispam_setup"
 
 # nakon setupa zimbraMtaMyNetworks, zimbraMtaRelayHost restart postfix
-su - zimbra -c "postfix reload"
+su - zimbra -c "zmcontrol restart"
 
 restart_cron_rsyslogd
 
