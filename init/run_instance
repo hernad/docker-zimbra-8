@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# hernad 16.10.2018; v27
+# hernad 27.10.2018; v28
 
 source /init/init-common
 
@@ -98,6 +98,8 @@ echo "forwarding iskljucen - antispam/antiforge mjera"
 su - zimbra -c "zmprov modifyCos defaultExternal zimbraFeatureMailForwardingEnabled FALSE"
 su - zimbra -c "zmprov modifyCos default zimbraFeatureMailForwardingEnabled FALSE"
 
+echo "disable chat service"
+su - zimbra -c "zmprov ms $ZIMBRA_SERVER zimbraChatServiceEnabled FALSE"
 
 #su - zimbra -c "zmtlsctl both"
 
@@ -106,12 +108,15 @@ su - zimbra -c "/init/antispam_setup"
 # nakon setupa zimbraMtaMyNetworks, zimbraMtaRelayHost restart postfix
 su - zimbra -c "postfix reload"
 
-killall cron
-killall rsyslogd
-[ -f /var/run/ryslogd.pid ] && rm /var/run/rsyslogd.pid
-[ -f /var/run/crond.pid ] && /var/run/crond.pid
-cron
-rsyslogd
+restart_cron_rsyslogd
+
+echo sacekajmo 7sec ... 
+sleep 7
+if [ ! -s /var/log/zimbra-stats.log  ] ; then
+   echo "/var/log/zimbra-stats.log treba ponoviti start rsyslogd servisa"
+   restart_cron_rsyslogd
+   su - zimbra -c "zmcontrol restart"
+fi
 
 echo "===RUN_END=="
 tail -f /dev/null
