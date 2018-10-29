@@ -195,3 +195,27 @@ function restart_cron_rsyslogd() {
  cron
  rsyslogd
 }
+
+
+function copy_etc_2_docker_etc() {
+  echo '/etc -> /docker_etc/etc'
+  mkdir -p /docker_etc/etc
+  cp -av /etc/aliases.lmdb /etc/localtime /etc/timezone /docker_etc/etc/
+  mkdir /docker_etc/etc/logrotate.d
+  cp -av /etc/logrotate.d/zimbra  /docker_etc/etc/logrotate.d/
+  mkdir /docker_etc/etc/rsyslog.d
+  cp -av /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/60-zimbra.conf /docker_etc/etc/rsyslog.d
+}
+
+
+function copy_zimbra_common_etc_conf_2_docker_etc() {
+ echo '/opt/zimbra/conf -> /docker_etc/conf'
+ mkdir -p /docker_etc/conf
+ cp -av /opt/zimbra/conf/* /docker_etc/conf/
+
+ echo '/opt/zimbra/common/conf,etc -> /docker_etc/common_conf, common_etc'
+ mkdir -p /docker_etc/common_conf 
+ mkdir -p /docker_etc/common_etc
+ cp -av /opt/zimbra/common/conf/* /docker_etc/common_conf/
+ cp -av /opt/zimbra/common/etc/* /docker_etc/common_etc/
+}
