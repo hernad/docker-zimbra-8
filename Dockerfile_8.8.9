@@ -87,6 +87,8 @@ RUN     wget --no-cache https://github.com/Zimbra-Community/account-history/raw/
 
 
 COPY    init/rsyslog/*.conf /etc/rsyslog.d/
+COPY    init/rsyslog/logrotate_zimbra /etc/logrotate.d/zimbra
+
 COPY    apt/zimbra-imapd_8.8.9.GA.3019.UBUNTU16.64_amd64.deb  /tmp/
 
 RUN     dpkg -i /tmp/zimbra-imapd_8.8.9.GA.3019.UBUNTU16.64_amd64.deb  ; rm -rf /tmp/zimbra*deb
