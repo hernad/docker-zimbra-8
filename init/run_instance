@@ -47,6 +47,9 @@ tar xf /docker_etc/jetty_base.tar.gz
 tar xf /docker_etc/cache_debconf.tar.gz
 
 cp -av /init/rsyslog/logrotate_zimbra /etc/logrotate.d/zimbra
+chmod 0644 /etc/logrotate.d/zimbra
+
+
 
 fix_zimbra_priviledges
 
