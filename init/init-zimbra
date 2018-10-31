@@ -1,6 +1,8 @@
 #!/bin/bash
-source /init/init-common
 
+# hernad 31.10.2018; v30
+
+source /init/init-common
 
 if  [ -f /opt/zimbra/data/ldap/mdb/db/data.mdb  ] ; then
    echo "postoje ldap podaci"

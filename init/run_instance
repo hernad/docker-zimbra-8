@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# hernad 27.10.2018; v29
+# hernad 31.10.2018; v30
 
 source /init/init-common
 
 cp -av /docker_etc/etc/* /etc/
+
 
 if [ ! -f /opt/zimbra/common/etc/java/cacerts ] ; then
    cp -av /docker_etc/common_etc/* /opt/zimbra/common/etc/
