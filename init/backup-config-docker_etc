@@ -1,9 +1,0 @@
-#!/bin/bash
-
-cd /
-
-# saveconfig after upgrade
-tar cvfz /docker_etc/zimbra_saveconfig.tar.gz /opt/zimbra/.saveconfig
-
-tar cvfz /docker_etc/jetty_base.tar.gz /opt/zimbra/jetty_base/
-tar cvfz /docker_etc/cache_debconf.tar.gz /var/cache/debconf
